@@ -8,8 +8,8 @@ const divs = document.querySelectorAll('div')
 divs.forEach(div => {
     div.addEventListener('click', () => {
         console.log('hi')
-    })
-})
+    });
+}); 
 
 //const btn = document.querySelector('.btn')
 
@@ -22,43 +22,42 @@ const btn = document.querySelectorAll('.btn');
 btn.forEach(btn => {
     btn.addEventListener('click', function(e) {
         e.target.style.backgroundColor= 'yellow'
-    })
-})
+    });
+}); 
 
 
 //mouse over 
 const logoHead = document.querySelector('.logo-heading'); 
 const mousePurple = () => {
     logoHead.style.background = 'purple'; 
-}
-logoHead.addEventListener('mouseover', mousePurple)
+}; 
+logoHead.addEventListener('mouseover', mousePurple); 
 
 const mouseOut = () => {
     logoHead.style.backgroundColor = ''; 
-}
+}; 
+
 logoHead.addEventListener('mouseout', mouseOut); 
 
+//dbl click 
+
+const nav = document.querySelector('.main-navigation'); 
+nav.addEventListener('dblclick', function(e) {
+    nav.classList.toggle('large'); 
+}); 
 
 
+//wheel 
+function zoom(wheel) {
+    wheel.preventDefault(); 
 
+    scale += wheel.delay * -0.01; 
 
+    scale = Math.min(Math.max(.125, scale), 4); 
 
-/*
- 
-const subtitle = document.querySelector('.into h2'); 
-const letsGoP = document.querySelector('p'); 
-
-
-//select 
-letsGoP.addEventListener('select', event => {
-    event.target.value.substring
-})
-
-//keydown
-function subtitlePurp(e) {
-    if (e.key === 'Enter') {
-        subtitle.style.color = '#9932CC'; 
-    }
+    el.style.transform = `scale(${scale})`; 
 }
-document.addEventListener('keydown', subtitlePurp); 
-*/
+
+let scale = 1; 
+const el = document.querySelector('img'); 
+el.onwheel = zoom; 
